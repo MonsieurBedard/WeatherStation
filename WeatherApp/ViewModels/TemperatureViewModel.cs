@@ -25,6 +25,16 @@ namespace WeatherApp.ViewModels
             }
         }
 
+        public bool CanGetTemp()
+        {
+            if (TemperatureService == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         public object CelsiusInFahrenheit(double c)
         {
             double result = (c * 9 / 5) + 32;

@@ -94,8 +94,10 @@ namespace WeatherStationTests
             // Arrange
 
             // Act       
+            bool actual = _sut.CanGetTemp();
 
             // Assert
+            Assert.False(actual);
 
             /// TODO : git commit -a -m "T04 CanGetTemp_WhenServiceIsNull_ReturnsFalse : Done"
         }
