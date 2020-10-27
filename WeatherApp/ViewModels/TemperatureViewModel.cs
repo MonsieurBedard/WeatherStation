@@ -8,7 +8,7 @@ namespace WeatherApp.ViewModels
     public class TemperatureViewModel : BaseViewModel
     {
         /// TODO : Ajoutez le code nécessaire pour réussir les tests et répondre aux requis du projet
-        private ITemperatureService TemperatureService;
+        public ITemperatureService TemperatureService { get; private set; }
 
         public DelegateCommand<String> GetTempCommand { get; set; }
 
