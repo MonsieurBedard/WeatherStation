@@ -110,10 +110,15 @@ namespace WeatherStationTests
         public void CanGetTemp_WhenServiceIsSet_ReturnsTrue()
         {
             // Arrange
+            var _mock = new Mock<ITemperatureService>();
 
-            // Act       
+            _sut.SetTemperatureService(_mock.Object);
+
+            // Act
+            bool actual = _sut.CanGetTemp();
 
             // Assert
+            Assert.True(actual);
 
             /// TODO : git commit -a -m "T05 CanGetTemp_WhenServiceIsSet_ReturnsTrue : Done"
         }

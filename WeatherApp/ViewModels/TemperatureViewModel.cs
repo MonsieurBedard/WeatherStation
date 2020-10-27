@@ -17,6 +17,11 @@ namespace WeatherApp.ViewModels
             GetTempCommand = new DelegateCommand<string>(GetTemp);
         }
 
+        public void SetTemperatureService(ITemperatureService service)
+        {
+            TemperatureService = service;
+        }
+
         private void GetTemp(string obj)
         {
             if (TemperatureService == null)
