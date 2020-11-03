@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using WeatherApp.Commands;
+using WeatherApp.Services;
 
 namespace WeatherApp.ViewModels
 {
@@ -11,6 +13,8 @@ namespace WeatherApp.ViewModels
         public ITemperatureService TemperatureService { get; private set; }
 
         public DelegateCommand<String> GetTempCommand { get; set; }
+
+        public TemperatureModel CurrentTemp { get; private set; }
 
         public TemperatureViewModel()
         {
@@ -27,7 +31,16 @@ namespace WeatherApp.ViewModels
             if (TemperatureService == null)
             {
                 throw new NullReferenceException();
+            } 
+            else
+            {
+                GetTempAsync(obj);
             }
+        }
+
+        private async void GetTempAsync(string obj)
+        {
+            CurrentTemp = await TemperatureService.GetTempAsync();
         }
 
         public bool CanGetTemp()
